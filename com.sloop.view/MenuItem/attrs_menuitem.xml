@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MenuItem">
+
+        <!-- 文字 -->
+        <attr name="ItemText" format="string" />
+        <!-- 文字颜色 -->
+        <attr name="ItemTextColor" format="color" />
+        <!-- 文字大小 -->
+        <attr name="ItemTextSize" format="dimension" />
+        <!-- 图片 -->
+        <attr name="LeftImage" format="reference|color" />
+        <attr name="RightImage" format="reference|color" />
+    </declare-styleable>
+
+</resources>
