@@ -8,7 +8,7 @@
  * @version V1.0
  */
 
-package com.sloop.view;
+package com.gcssloop.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -21,7 +21,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.sloop.sao.message.R;
+import com.gcssloop.library.R;
 
 
 /**
@@ -32,6 +32,8 @@ import com.sloop.sao.message.R;
  * @website: http://www.sloop.icoc.cc
  * @weibo: http://weibo.com/u/5459430586
  * @date 2015年6月28日 下午10:13:05
+ *
+ * 有 attr 文件
  */
 
 public class MenuItem extends RelativeLayout {

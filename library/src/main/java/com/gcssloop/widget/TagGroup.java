@@ -1,4 +1,4 @@
-package com.sloop.widget;
+package com.gcssloop.widget;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
 /**
- * ±êÇ©
+ * ï¿½ï¿½Ç©
  * A <code>TagGroup</code> is a special layout that contain a set of tags.
  * This group has two modes:
  * <p>
@@ -572,7 +572,7 @@ public class TagGroup extends ViewGroup {
 
     @Override
     public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new TagGroup.LayoutParams(getContext(), attrs);
+        return new LayoutParams(getContext(), attrs);
     }
 
     /**
@@ -643,8 +643,8 @@ public class TagGroup extends ViewGroup {
             dest.writeString(input);
         }
 
-        public static final Parcelable.Creator<SavedState> CREATOR =
-                new Parcelable.Creator<SavedState>() {
+        public static final Creator<SavedState> CREATOR =
+                new Creator<SavedState>() {
                     @Override
 					public SavedState createFromParcel(Parcel in) {
                         return new SavedState(in);
@@ -781,8 +781,8 @@ public class TagGroup extends ViewGroup {
             mPathEffect = new DashPathEffect(new float[]{10, 5}, 0);
 
             setPadding(mHorizontalPadding, mVerticalPadding, mHorizontalPadding, mVerticalPadding);
-            setLayoutParams(new TagGroup.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
-                    android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+            setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT));
 
             setGravity(Gravity.CENTER);
             setText(text);

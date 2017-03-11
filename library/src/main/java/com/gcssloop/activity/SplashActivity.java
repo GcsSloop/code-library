@@ -1,4 +1,4 @@
-package com.sloop.football.ui;
+package com.gcssloop.activity;
 
 import android.os.Bundle;
 import android.os.Handler;

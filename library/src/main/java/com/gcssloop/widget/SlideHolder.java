@@ -14,10 +14,7 @@
  * the License.
  */
 
-package com.sloop.view;
-
-import java.util.LinkedList;
-import java.util.Queue;
+package com.gcssloop.widget;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -35,6 +32,9 @@ import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Transformation;
 import android.widget.FrameLayout;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 
 public class SlideHolder extends FrameLayout {

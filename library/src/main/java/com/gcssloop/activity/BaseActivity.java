@@ -1,5 +1,6 @@
-package com.sloop.football.ui;
+package com.gcssloop.activity;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.widget.Toast;
+
+import java.util.List;
 
 /**
  * UI界面基类
@@ -110,5 +113,28 @@ public class BaseActivity extends AppCompatActivity {
     public void finish() {
         super.finish();
         //    overridePendingTransition(R.anim.zoomin, R.anim.zoomout);
+    }
+
+    /**
+     * 判断程序是否处于后台
+     *
+     * @param context 上下文
+     * @return true表示程序当前处于后台，false表示程序当前处于前台
+     */
+    public static boolean isBackground(Context context) {
+
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
+
+        for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
+            if (appProcess.processName.equals(context.getPackageName())) {
+                if (appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_BACKGROUND) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return false;
     }
 }

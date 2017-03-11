@@ -1,4 +1,4 @@
-package com.sloop.view;
+package com.gcssloop.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,10 +16,13 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.sloop.sao.message.R;
+import com.gcssloop.library.R;
+
 
 /**
  * 圆形图片
+ * <p>
+ * 有 attr 文件
  */
 public class CircleImageView extends ImageView {
 
