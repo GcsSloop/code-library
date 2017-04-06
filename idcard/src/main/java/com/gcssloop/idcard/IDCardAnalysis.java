@@ -44,7 +44,7 @@ public class IDCardAnalysis {
      * @param IDStr 身份证 ID
      * @return 解析后的数据
      */
-    public IDInfo analysis(String IDStr) {
+    public static IDInfo analysis(String IDStr) {
         IDInfo result = new IDInfo();
         result.setCardId(IDStr);
 
@@ -118,7 +118,7 @@ public class IDCardAnalysis {
     }
 
     // 是否是有效的生日地址
-    public boolean isValidBirthdayDate(String date) {
+    private static boolean isValidBirthdayDate(String date) {
         if (date == null || date.isEmpty())
             return false;
 
@@ -142,7 +142,7 @@ public class IDCardAnalysis {
     }
 
     // 是否全是数字
-    private boolean isNumber(String str) {
+    private static boolean isNumber(String str) {
         Pattern pattern = Pattern.compile("[0-9]*");
         Matcher isNum = pattern.matcher(str);
         if (isNum.matches()) {
