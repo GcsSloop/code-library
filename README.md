@@ -11,3 +11,4 @@
 | recyclerview-support | recyclerview 相关工具 |
 | time-util            | 时间工具              |
 | logger               | 日志                |
+| idcard               | 身份证信息解析器          |
