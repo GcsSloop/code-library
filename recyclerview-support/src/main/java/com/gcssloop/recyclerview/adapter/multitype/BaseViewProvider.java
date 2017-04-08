@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-04-08 16:14:18
+ * Last modified 2017-04-09 05:04:17
  *
  * GitHub: https://github.com/GcsSloop
  * WeiBo: http://weibo.com/GcsSloop
@@ -46,7 +46,17 @@ public abstract class BaseViewProvider<T> {
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent) {
         View view = mInflater.inflate(mLayoutId, parent, false);
         RecyclerViewHolder viewHolder = new RecyclerViewHolder(view);
+        onViewHolderIsCreated(viewHolder);
         return viewHolder;
+    }
+
+    /**
+     * 当 ViewHolder 创建完成时调用
+     *
+     * @param holder ViewHolder
+     */
+    public void onViewHolderIsCreated(RecyclerViewHolder holder) {
+
     }
 
     /**
