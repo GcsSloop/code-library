@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-04-08 15:51:07
+ * Last modified 2017-04-08 16:14:19
  *
  * GitHub: https://github.com/GcsSloop
  * WeiBo: http://weibo.com/GcsSloop
  * WebSite: http://www.gcssloop.com
  */
 
-package com.gcssloop.recyclerview_support.multitype_adapter;
+package com.gcssloop.recyclerview.adapter.multitype;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -98,7 +98,7 @@ public class MultiTypePool implements TypePool {
 
         public ProviderNotFoundException(@NonNull Class<?> clazz) {
             super("Do you have registered the provider for {className}.class in the adapter/pool?"
-                .replace("{className}", clazz.getSimpleName()));
+                    .replace("{className}", clazz.getSimpleName()));
         }
     }
 }

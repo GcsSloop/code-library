@@ -13,26 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-04-08 15:51:07
+ * Last modified 2017-04-08 16:14:18
  *
  * GitHub: https://github.com/GcsSloop
  * WeiBo: http://weibo.com/GcsSloop
  * WebSite: http://www.gcssloop.com
  */
 
-package com.gcssloop.recyclerview_support.multitype_adapter;
+package com.gcssloop.recyclerview.adapter.multitype;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.gcssloop.recyclerview_support.base.RecyclerViewHolder;
+import com.gcssloop.recyclerview.adapter.base.RecyclerViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 带有头部和底部的适配器
+ * 使用步骤：
+ * 1. 创建实体类 Bean
+ * 2. 创建对应的 provider 并继承自 BaseViewProvider， 在对应的 provider 的 onBindView 里面处理内容
+ * 3. 使用 adapter.register(bean, provider.class) 来将数据实体和 provider 对应起来
+ * 4. 注册 Header 或者 Footer
+ * 5. 将数据 data 使用 ArrayList<Object> 类型存储起来， 使用 adapter.addDatas(data) 添加数据
+ * 6. 大功告成
  */
 public class HeaderFooterAdapter extends RecyclerView.Adapter<RecyclerViewHolder>
         implements TypePool {

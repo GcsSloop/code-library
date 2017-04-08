@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-04-05 15:38:24
+ * Last modified 2017-04-08 16:14:10
  *
  * GitHub: https://github.com/GcsSloop
  * WeiBo: http://weibo.com/GcsSloop
  * WebSite: http://www.gcssloop.com
  */
 
-package com.gcssloop.recyclerview_support.singletype_adapter;
+package com.gcssloop.recyclerview.adapter.singletype;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;
@@ -30,7 +30,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gcssloop.recyclerview_support.base.RecyclerViewHolder;
+import com.gcssloop.recyclerview.adapter.base.RecyclerViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;

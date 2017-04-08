@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-04-08 15:51:07
+ * Last modified 2017-04-08 16:14:18
  *
  * GitHub: https://github.com/GcsSloop
  * WeiBo: http://weibo.com/GcsSloop
  * WebSite: http://www.gcssloop.com
  */
 
-package com.gcssloop.recyclerview_support.multitype_adapter;
+package com.gcssloop.recyclerview.adapter.multitype;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;
@@ -29,13 +29,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gcssloop.recyclerview_support.base.RecyclerViewHolder;
+import com.gcssloop.recyclerview.adapter.base.RecyclerViewHolder;
 
 /**
  * ItemView 的管理者
  */
 public abstract class BaseViewProvider<T> {
-    private RecyclerViewHolder mViewHolder;
     private LayoutInflater mInflater;
     private int mLayoutId;
 
@@ -46,8 +45,8 @@ public abstract class BaseViewProvider<T> {
 
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent) {
         View view = mInflater.inflate(mLayoutId, parent, false);
-        mViewHolder = new RecyclerViewHolder(view);
-        return mViewHolder;
+        RecyclerViewHolder viewHolder = new RecyclerViewHolder(view);
+        return viewHolder;
     }
 
     /**

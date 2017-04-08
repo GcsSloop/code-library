@@ -96,7 +96,7 @@ uploadArchives {
         repository(url: "http://localhost:8081/repository/gcssloop-central/") {
             authentication(userName: "GcsSloop", password: "123456")
         }
-        pom.version = "0.0.2"
+        pom.version = "0.0.3"
         pom.artifactId = "recyclerview"
         pom.groupId = "com.gcssloop.support"
     }
