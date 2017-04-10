@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-04-09 05:04:17
+ * Last modified 2017-04-08 16:14:18
  *
  * GitHub: https://github.com/GcsSloop
  * WeiBo: http://weibo.com/GcsSloop
@@ -37,10 +37,12 @@ import com.gcssloop.recyclerview.adapter.base.RecyclerViewHolder;
 public abstract class BaseViewProvider<T> {
     private LayoutInflater mInflater;
     private int mLayoutId;
+    protected Context mContext;
 
     public BaseViewProvider(@NonNull Context context, @NonNull @LayoutRes int layout_id) {
         mInflater = LayoutInflater.from(context);
         mLayoutId = layout_id;
+        mContext = context;
     }
 
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent) {
