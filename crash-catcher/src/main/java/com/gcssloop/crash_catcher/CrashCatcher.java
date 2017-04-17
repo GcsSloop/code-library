@@ -40,11 +40,15 @@ import java.util.Date;
 
 /**
  * 异常捕手，捕获 Crash 和莫名的异常信息
+ * 请注意添加SD卡读写权限
+ * <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+ * <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
  */
 public class CrashCatcher implements Thread.UncaughtExceptionHandler {
     private static final String TAG = "CrashCatcher";
     private static final boolean DEBUG = true;
 
+    // TODO 修改路径为私有
     private static final String PATH = Environment.getExternalStorageDirectory().getPath() +
             "/crash-catcher/log/";
     private static final String FILE_NAME = "crash";
