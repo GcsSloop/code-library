@@ -48,10 +48,8 @@ public class CrashCatcher implements Thread.UncaughtExceptionHandler {
     private static final String TAG = "CrashCatcher";
     private static final boolean DEBUG = true;
 
-    // TODO 修改路径为私有
-    private static final String PATH = Environment.getExternalStorageDirectory().getPath() +
-            "/crash-catcher/log/";
-    private static final String FILE_NAME = "crash";
+    private static String PATH; // 该路径在 init 中初始化
+    private static String FILE_NAME = "crash";
 
     //log文件的后缀名
     private static final String FILE_NAME_SUFFIX = ".trace";
@@ -79,6 +77,17 @@ public class CrashCatcher implements Thread.UncaughtExceptionHandler {
         Thread.setDefaultUncaughtExceptionHandler(this);
         //获取Context，方便内部使用
         mContext = context.getApplicationContext();
+
+        // 根据 SDCard 是否挂载初始化和是否能获取到SD卡位置来确定 crash 信息保存位置
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            try {
+                PATH = mContext.getExternalCacheDir().getPath() + "/crash-catcher/log/";
+            } catch (NullPointerException ex) {
+                PATH = mContext.getCacheDir().getPath() + "/crash-catcher/log/";
+            }
+        } else {
+            PATH = mContext.getCacheDir().getPath() + "/crash-catcher/log/";
+        }
     }
 
     /**
