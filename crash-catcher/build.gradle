@@ -52,51 +52,11 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-// -------------------------------------------------------------------------------------------------
-
-apply plugin: 'maven'
-
-// 指定编码
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
+// 上传信息
+ext {
+    GROUP_ID = "com.gcssloop.support"
+    ARTIFACT_ID = "crash-catcher"
+    VERSION = "0.0.2"
 }
 
-// 打包源码
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    failOnError  false
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.compile
-}
-
-// 制作文档(Javadoc)
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-
-//定义上传行为
-uploadArchives {
-    //仓库基于maven
-    repositories.mavenDeployer {
-        //配置上传的url
-        repository(url: "http://localhost:8081/repository/gcssloop-central/") {
-            authentication(userName: "GcsSloop", password: "123456")
-        }
-        pom.version = "0.0.2"
-        pom.artifactId = "crash-catcher"
-        pom.groupId = "com.gcssloop.util"
-    }
-}
-
-// -------------------------------------------------------------------------------------------------
+apply from: rootProject.getRootDir().getAbsolutePath() + "/pack-upload.gradle"

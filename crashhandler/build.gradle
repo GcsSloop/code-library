@@ -51,3 +51,12 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
 }
+
+// 上传信息
+ext {
+    GROUP_ID = "com.gcssloop.util"
+    ARTIFACT_ID = "crashhandler"
+    VERSION = "0.0.1"
+}
+
+apply from: rootProject.getRootDir().getAbsolutePath() + "/pack-upload.gradle"

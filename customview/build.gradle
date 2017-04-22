@@ -30,75 +30,12 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-
-/*
- * Copyright 2017 GcsSloop
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * Last modified 2017-04-05 15:38:44
- *
- * GitHub: https://github.com/GcsSloop
- * WeiBo: http://weibo.com/GcsSloop
- * WebSite: http://www.gcssloop.com
- */
-
-// -------------------------------------------------------------------------------------------------
-
-apply plugin: 'maven'
-
-// 指定编码
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
+// 上传信息
+ext {
+    GROUP_ID = "com.gcssloop.support"
+    ARTIFACT_ID = "customview"
+    VERSION = "0.0.2"
 }
 
-// 打包源码
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    failOnError  false
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.compile
-}
-
-// 制作文档(Javadoc)
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-
-//定义上传行为
-uploadArchives {
-    //仓库基于maven
-    repositories.mavenDeployer {
-        //配置上传的url
-        repository(url: "http://localhost:8081/repository/gcssloop-central/") {
-            authentication(userName: "GcsSloop", password: "123456")
-        }
-        pom.version = "0.0.2"
-        pom.artifactId = "customview"
-        pom.groupId = "com.gcssloop.support"
-    }
-}
-
-// -------------------------------------------------------------------------------------------------
+apply from: rootProject.getRootDir().getAbsolutePath() + "/pack-upload.gradle"
 
