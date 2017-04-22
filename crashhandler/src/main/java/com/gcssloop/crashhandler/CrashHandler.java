@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-04-20 22:55:59
+ * Last modified 2017-04-23 00:48:39
  *
  * GitHub: https://github.com/GcsSloop
  * WeiBo: http://weibo.com/GcsSloop
@@ -89,8 +89,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     /**
-     * 这个是最关键的函数，当程序中有未被捕获的异常，系统将会自动调用#uncaughtException方法
-     * thread为出现未捕获异常的线程，ex为未捕获的异常，有了这个ex，我们就可以得到异常信息。
+     * 这个是最关键的函数，当程序中有未被捕获的异常，
+     * 系统将会自动调用 {@link #uncaughtException(Thread, Throwable)} 这个方法
+     * thread 为出现未捕获异常的线程，ex为未捕获的异常，有了这个ex，我们就可以得到异常信息。
      */
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
@@ -131,7 +132,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      * 2. 上传异常
      * 3. 写入文件(方便后续获取)
      *
-     * @param ex 异
+     * @param ex 异常
      * @return true 表示处理成功，false 表示没有处理或处理失败
      */
     private boolean handleException(Throwable ex) {
@@ -180,7 +181,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         Log.e(TAG, "packCrashTime");
         long current = System.currentTimeMillis();
         @SuppressLint("SimpleDateFormat")
-        String time = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date(current));
+        String time = new SimpleDateFormat("yyyy-MM-dd HHmmss").format(new Date(current));
         info.setTime(time);
     }
 
@@ -277,12 +278,13 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      * @return CrashCache
      */
     @Nullable
-    public CrashInfoManager getCrashCache() {
+    public CrashInfoManager getCrashInfoManager() {
         return mCrashInfoManager;
     }
 
     /**
      * 设置异常监听器
+     *
      * @param listener 监听器
      */
     public void setListener(CrashListener listener) {
