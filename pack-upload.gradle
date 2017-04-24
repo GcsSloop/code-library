@@ -1,5 +1,3 @@
-apply plugin: 'maven'
-
 // 指定编码
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
@@ -28,6 +26,8 @@ artifacts {
     archives sourcesJar
     archives javadocJar
 }
+
+apply plugin: 'maven'
 
 //定义上传行为
 uploadArchives {
