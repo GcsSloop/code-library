@@ -27,10 +27,11 @@ artifacts {
     archives javadocJar
 }
 
+/*
 apply plugin: 'maven'
 
 //定义上传行为
-uploadArchives {
+uploadArchives << {
     //仓库基于maven
     repositories.mavenDeployer {
         //配置上传的url
@@ -42,3 +43,4 @@ uploadArchives {
         pom.groupId = GROUP_ID
     }
 }
+*/
