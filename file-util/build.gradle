@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-04-07 01:14:36
+ * Last modified 2017-05-16 00:41:42
  *
- *  GitHub: https://github.com/GcsSloop
- *  WeiBo: http://weibo.com/GcsSloop
- *  WebSite: http://www.gcssloop.com
+ * GitHub: https://github.com/GcsSloop
+ * WeiBo: http://weibo.com/GcsSloop
+ * WebSite: http://www.gcssloop.com
  */
 
 apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "25.0.3"
 
     defaultConfig {
         minSdkVersion 14
@@ -48,15 +48,15 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
 }
 
 // 上传信息
 ext {
-    GROUP_ID = "com.gcssloop.view"
-    ARTIFACT_ID = "animation"
-    VERSION = "0.0.1"
+    GROUP_ID = "com.gcssloop.utils"
+    ARTIFACT_ID = "fileutil"
+    VERSION = "0.0.2"
 }
 
-// apply from: rootProject.getRootDir().getAbsolutePath() + "/pack-upload.gradle"
+apply from: rootProject.getRootDir().getAbsolutePath() + "/pack-upload.gradle"

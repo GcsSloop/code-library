@@ -27,7 +27,7 @@ artifacts {
     archives javadocJar
 }
 
-/*
+
 apply plugin: 'maven'
 
 //定义上传行为
@@ -43,4 +43,3 @@ uploadArchives << {
         pom.groupId = GROUP_ID
     }
 }
-*/
