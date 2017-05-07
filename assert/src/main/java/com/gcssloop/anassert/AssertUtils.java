@@ -22,20 +22,51 @@
 
 package com.gcssloop.anassert;
 
+import android.os.Looper;
+
 /**
  * 断言工具
  */
 public class AssertUtils {
 
-    public static void notNull(Object obj){
-        if (null == obj){
+    /**
+     * 断言对象不为null
+     *
+     * @param obj 数据
+     */
+    public static void assertNotNull(Object obj) {
+        if (null == obj) {
             throw new GcsNullException("Not allowed to be null!");
         }
     }
 
-    public static void notNull(Object obj, String msg){
-        if (null == obj){
+    /**
+     * 断言对象不为空
+     *
+     * @param obj 对象
+     * @param msg 说明
+     */
+    public static void assertNotNull(Object obj, String msg) {
+        if (null == obj) {
             throw new GcsNullException(msg);
+        }
+    }
+
+    /**
+     * 断言在主线程
+     */
+    public static void assertInMainThread() {
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            throw new RuntimeException("This is not in main thread!");
+        }
+    }
+
+    /**
+     * 断言在子线程
+     */
+    public static void assertInBackground() {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            throw new RuntimeException("This is not in background thread!");
         }
     }
 }
