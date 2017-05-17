@@ -56,7 +56,7 @@ dependencies {
 ext {
     GROUP_ID = "com.gcssloop.utils"
     ARTIFACT_ID = "fileutil"
-    VERSION = "0.0.2"
+    VERSION = "0.0.1"
 }
 
-// apply from: rootProject.getRootDir().getAbsolutePath() + "/pack-upload.gradle"
+//apply from: rootProject.getRootDir().getAbsolutePath() + "/pack-upload.gradle"
