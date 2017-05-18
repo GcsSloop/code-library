@@ -33,6 +33,9 @@ import android.widget.Toast;
 
 import java.io.Serializable;
 
+/**
+ * 基础Activity，提供一些基本的方法
+ */
 public class RootActivity extends AppCompatActivity {
     private Toast mToast;
 
