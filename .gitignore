@@ -42,3 +42,5 @@ captures/
 # idea
 .idea/
 /pack-upload.gradle
+
+pack-upload.gradle
