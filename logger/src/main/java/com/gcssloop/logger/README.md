@@ -86,7 +86,7 @@ Logger.removeMaskedTag("GCS-LOG");
 
 当然你也可以使用 addMaskedTags 或者 removeMaskedTags 来添加或者移除一组需要屏蔽掉 TAG。
 
-#### 3.2 屏蔽某个类
+#### 3.2 屏蔽当前类
 
 ```java
 Logger.maskThis(true);
