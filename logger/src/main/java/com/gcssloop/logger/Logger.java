@@ -22,7 +22,15 @@ package com.gcssloop.logger;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Logger {
+
+    /**
+     * 被屏蔽的TAG
+     */
+    private static ArrayList<String> mMaskedTag = new ArrayList<>();
 
     private static String DEFAULT_TAG = "GCS-LOG";
 
@@ -40,6 +48,42 @@ public class Logger {
     public static Config init(@NonNull String tag) {
         mConfig = new Config(tag);
         return mConfig;
+    }
+
+    /**
+     * 添加被屏蔽的 tag
+     *
+     * @param tag tag
+     */
+    public static void addMaskedTag(String tag) {
+        mMaskedTag.add(tag);
+    }
+
+    /**
+     * 移除被屏蔽的 tag
+     *
+     * @param tag tag
+     */
+    public void removeMaskedTag(String tag) {
+        mMaskedTag.remove(tag);
+    }
+
+    /**
+     * 添加一堆需要屏蔽的 tag
+     *
+     * @param tags tags
+     */
+    public void addMaskedTags(List<String> tags) {
+        mMaskedTag.addAll(tags);
+    }
+
+    /**
+     * 移除一堆需要被屏蔽的 tag
+     *
+     * @param tags tags
+     */
+    public void removeMaskedTags(List<String> tags) {
+        mMaskedTag.removeAll(tags);
     }
 
     public static void v(String message) {
@@ -84,6 +128,10 @@ public class Logger {
 
     private static void log(int level, String tag, String message) {
         if (mConfig.getLevel() == Config.LEVEL_NONE) {
+            return;
+        }
+
+        if (mMaskedTag.contains(tag)) {
             return;
         }
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-05-24 13:59:21
+ * Last modified 2017-06-01 19:56:59
  *
  * GitHub: https://github.com/GcsSloop
  * WeiBo: http://weibo.com/GcsSloop
@@ -54,8 +54,8 @@ dependencies {
 
 // 上传信息
 ext {
-    GROUP_ID = "com.gcssloop.util"
-    ARTIFACT_ID = "closeutil"
+    GROUP_ID = "com.gcssloop.support"
+    ARTIFACT_ID = "view"
     VERSION = "0.0.1"
 }
 
