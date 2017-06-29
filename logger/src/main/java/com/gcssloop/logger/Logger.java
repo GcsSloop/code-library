@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2017 GcsSloop
  *
@@ -13,8 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-04-05 15:35:24
+ * Last modified 2017-06-29 13:58:49
  *
+ * GitHub: https://github.com/GcsSloop
+ * WeiBo: http://weibo.com/GcsSloop
+ * WebSite: http://www.gcssloop.com
  */
 
 package com.gcssloop.logger;
@@ -32,21 +36,37 @@ public class Logger {
      */
     private static ArrayList<String> mMaskedTag = new ArrayList<>();
 
-    private static String DEFAULT_TAG = "GCS-LOG";
+    private static List<String> mMaskedClass = new ArrayList<>();
+
+    /**
+     * 屏蔽当前类
+     *
+     * @param isBlock 是否屏蔽
+     */
+    public static void maskThis(Boolean isBlock) {
+        if (isBlock) {
+            mMaskedClass.add(getClassName(2));
+        } else {
+            mMaskedClass.remove(getClassName(2));
+        }
+    }
+
+    private static String DEFAULT_TAG = "";
 
     private static Config mConfig;
 
     private Logger() {
-
     }
 
     public static Config init() {
         mConfig = new Config(DEFAULT_TAG);
+        mMaskedTag.clear();
         return mConfig;
     }
 
     public static Config init(@NonNull String tag) {
         mConfig = new Config(tag);
+        mMaskedTag.clear();
         return mConfig;
     }
 
@@ -64,7 +84,7 @@ public class Logger {
      *
      * @param tag tag
      */
-    public void removeMaskedTag(String tag) {
+    public static void removeMaskedTag(String tag) {
         mMaskedTag.remove(tag);
     }
 
@@ -73,7 +93,7 @@ public class Logger {
      *
      * @param tags tags
      */
-    public void addMaskedTags(List<String> tags) {
+    public static void addMaskedTags(List<String> tags) {
         mMaskedTag.addAll(tags);
     }
 
@@ -82,7 +102,7 @@ public class Logger {
      *
      * @param tags tags
      */
-    public void removeMaskedTags(List<String> tags) {
+    public static void removeMaskedTags(List<String> tags) {
         mMaskedTag.removeAll(tags);
     }
 
@@ -135,6 +155,19 @@ public class Logger {
             return;
         }
 
+        String className = getClassName(3);
+        if (mMaskedClass.contains(className)) {
+            return;
+        }
+
+        int index = className.indexOf("$");
+        if (index >= 0) {
+            String simpleName = className.substring(0, index);
+            if (mMaskedClass.contains(simpleName)) {
+                return;
+            }
+        }
+
         if (level < mConfig.getLevel()) {
             return;
         }
@@ -156,6 +189,20 @@ public class Logger {
                 Log.e(tag, message);
                 break;
         }
+    }
 
+
+    /**
+     * 获取类名
+     *
+     * @param level 层级
+     * @return 调用者类名
+     */
+    private static String getClassName(int level) {
+        StackTraceElement thisMethodStack = (new Exception()).getStackTrace()[level];
+        String result = thisMethodStack.getClassName();
+        int lastIndex = result.lastIndexOf(".");
+        result = result.substring(lastIndex + 1, result.length());
+        return result;
     }
 }

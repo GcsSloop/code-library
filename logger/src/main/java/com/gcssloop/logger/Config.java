@@ -1,3 +1,5 @@
+
+
 /*
  * Copyright 2017 GcsSloop
  *
@@ -13,8 +15,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified 2017-04-05 15:35:24
+ * Last modified 2017-06-29 13:58:49
  *
+ * GitHub: https://github.com/GcsSloop
+ * WeiBo: http://weibo.com/GcsSloop
+ * WebSite: http://www.gcssloop.com
  */
 
 package com.gcssloop.logger;
@@ -22,7 +27,6 @@ package com.gcssloop.logger;
 import android.support.annotation.NonNull;
 
 public class Config {
-
     public static final int LEVEL_NONE = 0;
     public static final int LEVEL_FULL = 1;
 
@@ -41,7 +45,7 @@ public class Config {
         level = LEVEL_FULL;
     }
 
-    public Config setLevel(@NonNull int level){
+    public Config setLevel(@NonNull int level) {
         this.level = level;
         return this;
     }
@@ -51,6 +55,31 @@ public class Config {
     }
 
     public String getTag() {
+
+        if (null == tag || tag.isEmpty()) {
+            return getFullTag();
+        }
         return tag;
+    }
+
+    /**
+     * 获取默认的 tag
+     *
+     * @return 类名#方法名(调用位置)
+     */
+    private static String getFullTag() {
+        StackTraceElement thisMethodStack = (new Exception()).getStackTrace()[3];
+        String result = thisMethodStack.getClassName();
+        int lastIndex = result.lastIndexOf(".");
+        String className = result.substring(lastIndex + 1, result.length());
+        lastIndex = className.lastIndexOf("$");
+        String simpleName = className;
+        if (lastIndex > 0)
+            simpleName = className.substring(0, lastIndex);
+
+        result = className + "#" + thisMethodStack
+                .getMethodName() + ":(" + simpleName + ".java:" + thisMethodStack.getLineNumber()
+                + ")";
+        return result;
     }
 }

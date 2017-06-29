@@ -34,7 +34,7 @@ dependencies {
 ext {
     GROUP_ID = "com.gcssloop.util"
     ARTIFACT_ID = "logger"
-    VERSION = "0.0.2"
+    VERSION = "1.0.0"
 }
 
 apply from: rootProject.getRootDir().getAbsolutePath() + "/pack-upload.gradle"
