@@ -13,18 +13,13 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~
-  ~ Last modified 2017-04-05 15:35:24
+  ~ Last modified 2017-08-23 10:15:18
   ~
+  ~ GitHub: https://github.com/GcsSloop
+  ~ WeiBo: http://weibo.com/GcsSloop
+  ~ WebSite: http://www.gcssloop.com
   -->
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.gcssloop.logger">
-
-    <application android:allowBackup="true"
-                 android:label="@string/app_name"
-                 android:supportsRtl="true"
-    >
-
-    </application>
-
-</manifest>
+<resources>
+    <string name="app_name">Toast</string>
+</resources>

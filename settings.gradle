@@ -1,1 +1,1 @@
-include ':time-util', ':acache', ':listview-support', ':recyclerview-support', ':app-util', ':logger', ':customview', ':idcard', ':animation', ':app', ':crash-catcher', ':crashhandler', ':assert', ':file-util', ':closeutils', ':view-support'
+include ':time-util', ':acache', ':listview-support', ':recyclerview-support', ':app-util', ':customview', ':idcard', ':animation', ':app', ':crash-catcher', ':crashhandler', ':assert', ':file-util', ':closeutils', ':view-support', ':toast'

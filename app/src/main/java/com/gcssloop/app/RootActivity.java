@@ -90,7 +90,6 @@ public class RootActivity extends AppCompatActivity {
     private void toast(final String text, final int duration) {
         if (!TextUtils.isEmpty(text)) {
             runOnUiThread(new Runnable() {
-
                 @Override
                 public void run() {
                     if (mToast == null) {
